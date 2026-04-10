@@ -48,7 +48,7 @@ What Person 4 should do:
 - confirm deployed backend connection settings
 
 ---
-### .env file
+### .env file (You should make changes in this files)
 ```bash
 # Example environment configuration for Lumina frontend
 
