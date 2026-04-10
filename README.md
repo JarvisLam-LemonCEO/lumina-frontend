@@ -48,6 +48,24 @@ What Person 4 should do:
 - confirm deployed backend connection settings
 
 ---
+### .env file
+```bash
+# Example environment configuration for Lumina frontend
+
+# Backend API base URL
+# Replace with your local or deployed backend URL
+VITE_API_BASE_URL=http://localhost:8000
+
+# Enable or disable streaming mode
+# true = use streaming API
+# false = use normal API
+VITE_ENABLE_STREAMING=true
+
+# Log level (optional)
+# options: debug | info | warn | error
+VITE_LOG_LEVEL=debug
+```
+---
 
 ## Files Teammates Should Not Change
 
