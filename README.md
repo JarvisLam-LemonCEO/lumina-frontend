@@ -1,16 +1,66 @@
-# React + Vite
+## Files Each Teammate Should Change
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Person 1 — Core Inference Lead
+Person 1 should only change:
 
-Currently, two official plugins are available:
+- `src/api/requestsApi.js`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+What Person 1 should do:
+- connect `/generate`
+- connect `/generate/stream`
+- define request payload format
+- define response parsing
+- define streaming chunk parsing
+- confirm inference latency fields used by frontend
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Person 2 — Distributed Systems Lead
+Person 2 should only change:
 
-## Expanding the ESLint configuration
+- `src/api/nodesApi.js`
+- `src/api/healthApi.js`
+- `src/api/requestsApi.js`  <!-- only for trace endpoint -->
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+What Person 2 should do:
+- connect `/nodes/list`
+- connect `/assignments/current`
+- connect `/health`
+- connect `/requests/trace`
+- define node response schema
+- define assignment response schema
+- define health response schema
+- define trace response schema
+
+---
+
+### Person 4 — Deployment and SRE Lead
+Person 4 should only change:
+
+- `.env`
+- `.env.example`
+- `src/api/client.js`  <!-- only if base URL / proxy config must be updated -->
+
+What Person 4 should do:
+- set `VITE_API_BASE_URL`
+- provide staging and production API URLs
+- configure reverse proxy path if needed
+- confirm deployed backend connection settings
+
+---
+
+## Files Teammates Should Not Change
+
+These files should stay under Person 3 frontend ownership:
+
+- `src/main.jsx`
+- `src/App.jsx`
+- `src/pages/ChatPage.jsx`
+- `src/pages/ClusterPage.jsx`
+- `src/pages/HealthPage.jsx`
+- `src/pages/TracePage.jsx`
+- `src/components/layout/*`
+- `src/components/common/*`
+- `src/hooks/*`
+- `src/styles/*`
+- `src/mocks/*`
